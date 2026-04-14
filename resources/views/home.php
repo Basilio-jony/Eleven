@@ -33,14 +33,16 @@
     <li><a href="#processo">Processo</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <?php if (auth()->check()): ?>
+      <li><a href="/dashboard" class="nav-cta">Dashboard</a></li>
       <li>
         <form method="POST" action="/logout" style="display:inline">
           <?php echo csrf_field(); ?>
-          <button type="submit" style="background:none;border:none;cursor:pointer;color:inherit;font:inherit;letter-spacing:2px;font-size:0.85rem;font-weight:600;text-transform:uppercase;">Sair</button>
+          <button type="submit" style="background:none;border:none;cursor:pointer;color:rgba(200,212,220,0.7);font-family:'Barlow',sans-serif;letter-spacing:2px;font-size:0.85rem;font-weight:600;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#00c8e0'" onmouseout="this.style.color='rgba(200,212,220,0.7)'">Sair</button>
         </form>
       </li>
     <?php else: ?>
-      <li><a href="/login" class="nav-cta">Área Privada</a></li>
+      <li><a href="/login" class="nav-cta">Entrar</a></li>
+      <li><a href="/register" style="color:rgba(200,212,220,0.7);text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#00c8e0'" onmouseout="this.style.color='rgba(200,212,220,0.7)'">Registar</a></li>
     <?php endif; ?>
   </ul>
 </nav>
@@ -283,11 +285,11 @@
     <h2 class="cta-title">Pronto para<br>o Próximo Projeto?</h2>
     <p class="cta-desc">Entre em contacto connosco e descubra como a Eleven TV pode transformar o seu evento ou ideia num conteúdo audiovisual de excelência.</p>
     <div class="cta-buttons">
-      <a href="https://wa.me/244900000000" class="btn-primary" target="_blank">
+      <a href="https://wa.me/244958432897" class="btn-primary" target="_blank">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.524 5.845L0 24l6.335-1.509A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-4.964-1.345l-.356-.211-3.762.895.952-3.653-.232-.374A9.77 9.77 0 012.182 12C2.182 6.579 6.579 2.182 12 2.182S21.818 6.579 21.818 12 17.421 21.818 12 21.818z"/></svg>
         WhatsApp
       </a>
-      <a href="mailto:geral@eleventv.ao" class="btn-ghost">
+      <a href="/cdn-cgi/l/email-protection#a8cfcddac9c4e8cdc4cddecdc6dcde86c9c7" class="btn-ghost">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         Email
       </a>
@@ -299,11 +301,11 @@
       </div>
       <div class="contact-item">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        +244 900 000 000
+        +244 958 432 897
       </div>
       <div class="contact-item">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        geral@eleventv.ao
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81e6e4f3e0edc1e4ede4f7e4eff5f7afe0ee">[email&#160;protected]</a>
       </div>
     </div>
   </div>
@@ -311,9 +313,4 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">ELEVEN TV</div>
-  <div class="footer-text">© <?php echo date('Y'); ?> Eleven TV & Audiovisual. Todos os direitos reservados.</div>
-</footer>
-
-</body>
-</html>
+  <div class="footer-logo"

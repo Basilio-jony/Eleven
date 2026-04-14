@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,7 +11,6 @@ use App\Http\Controllers\LoginController;
 |--------------------------------------------------------------------------
 */
 
-// Página principal do site
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /*
@@ -19,13 +19,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 |--------------------------------------------------------------------------
 */
 
-// Mostrar formulário de login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-
-// Processar login
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 
-// Logout
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /*
@@ -35,11 +34,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 */
 
 Route::middleware('auth')->group(function () {
-
-    // Dashboard / área privada
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-
-    // Adiciona aqui outras rotas privadas conforme necessário
-    // Route::get('/admin/...', [...]);
-
 });
